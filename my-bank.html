@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyBank - Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f6ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 20px 20px;
+      border-radius: 10px;
+      width: 350px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+    }
+    input, button {
+      width: 300px;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-left: 20px;
+    }
+    button {
+      background: #003366;
+      color: white;
+      cursor: pointer;
+      width: 250px;
+      margin-left: 50px;
+    }
+    button:hover {
+      background: #0055aa;
+    }
+    .hidden {
+      display: none;
+    }
+    .balance {
+      font-size: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Login Page -->
+    <div id="loginPage">
+      <h2>MyBank Login</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password" onkeydown="handleCostKeydown(event);">
+      <button onclick="
+        login();
+        logining();
+      ">Login</button>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+      <h2>Welcome to MyBank</h2>
+      <p>Your Balance:</p>
+      <p class="balance" id="balance">$1000</p>
+      
+      <h3>Transfer Money</h3>
+      <input type="number" id="amount" placeholder="Enter amount">
+      <button onclick="
+        transfer();
+        transfering();
+      ">Transfer</button>
+
+      <p id="message"></p>
+      <button onclick="
+      logout();
+      logouting();
+      ">Logout</button>
+    </div>
+  </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden">
+      <h2>Welcome to MyBank</h2>
+      <h5>This is Gifti Zelalem transfering Money</h5>
+      <p>Your Balance:</p>
+      <p class="balance" id="balance">$1000</p>
+      
+      <h3>Transfer Money</h3>
+      <input type="number" id="amount" placeholder="Enter amount">
+      <button onclick="transfering()">Transfer</button>
+
+      <p id="message"></p>
+      <button onclick="logouting()">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    function handleCostKeydown(event) {
+      if (event.key === 'Enter') {
+        login();
+        logining();
+      }
+    }
+
+    let balance = 10000;
+
+    function login() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+
+      // Simple demo login
+      if (user === "eba" && pass === "eba@123") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+      } else {
+        
+      }
+    }
+
+    function transfer() {
+      let amount = parseFloat(document.getElementById("amount").value);
+      let message = document.getElementById("message");
+
+      if (isNaN(amount) || amount <= 0) {
+        message.innerHTML = "⚠️ Enter a valid amount.";
+        message.style.color = "red";
+        return;
+      }
+
+      if (amount > balance) {
+        message.innerHTML = "❌ Insufficient funds!";
+        message.style.color = "red";
+      } else {
+        balance -= amount;
+        document.getElementById("balance").innerText = "$" + balance;
+        message.innerHTML = "✅ Transfer successful!";
+        message.style.color = "green";
+      }
+    }
+
+    function logout() {
+      document.getElementById("dashboard").classList.add("hidden");
+      document.getElementById("loginPage").classList.remove("hidden");
+    }
+
+
+    let balanced = 10000;
+
+    function logining() {
+      let user = document.getElementById("username").value;
+      let pass = document.getElementById("password").value;
+
+      // Simple demo login
+      if (user === "gifti" && pass === "gifti@123") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("dashboard").classList.remove("hidden");
+      } else {
+        
+      }
+    }
+
+    function transfering() {
+      let amount = parseFloat(document.getElementById("amount").value);
+      let message = document.getElementById("message");
+
+      if (isNaN(amount) || amount <= 0) {
+        message.innerHTML = "⚠️ Enter a valid amount.";
+        message.style.color = "red";
+        return;
+      }
+
+      if (amount > balance) {
+        message.innerHTML = "❌ Insufficient funds!";
+        message.style.color = "red";
+      } else {
+        balance -= amount;
+        document.getElementById("balance").innerText = "$" + balanced;
+        message.innerHTML = "✅ Transfer successful!";
+        message.style.color = "green";
+      }
+    }
+
+    function logouting() {
+      document.getElementById("dashboard").classList.add("hidden");
+      document.getElementById("loginPage").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
