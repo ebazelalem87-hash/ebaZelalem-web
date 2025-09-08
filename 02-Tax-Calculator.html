@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial;
+      background-color: rgb(46, 46, 57);
+      display: flex;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .div2 {
+      margin-left: 475px;
+      margin-top: 220px;
+    }
+
+    .back {
+      color: wheat;
+      font-weight: bold;
+    }
+
+    .heading {
+      margin-left: 50px;
+      color: white;
+    }
+
+    .marquee-text {
+      width: 350px;
+      border: none;
+      margin-left: 23px;
+      color: rgb(185, 180, 180);
+      font-weight: bold;
+    }
+
+    .cost-input {
+      border-radius: 20px;
+      border: inset;
+      margin-top: 15px;
+      padding: 10px 15px;
+      font-size: 15px;
+      width: 400px;
+      margin-right: 400px;
+    }
+
+    .btn {
+      margin-left: 120px;
+      padding: 35px;
+      margin-top: 27px;
+      background-color: #633edb;
+      border: none;
+      border-radius: 3em;
+      gap: 12px;
+      background: linear-gradient(0deg, #a47cf3), #683fea;
+      cursor: pointer;
+      transition: all 150ms ease-in-out;
+      box-shadow: inset 0px 1px 0px 0px , 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917ff;
+      transform: translateY(-px);
+      font-weight: 600;
+      color: #e8e8e8;
+      font-size: large;
+      fill: white;
+      transform: scale(1.5);
+    }
+
+    .pre {
+      margin-left: 30px;
+      color: rgb(124, 119, 119);
+    }
+
+    .total-cost {
+      margin-left: 40px;
+      font-weight: bold;
+      font-size: 30px;
+      color: white;
+    }
+
+    .result {
+      color: red;
+    }
+
+    .btn:hover {
+      background: linear-gradient(0deg, #a47cf3), #683fea;
+      box-shadow: inset 0px 1px 0px 0px rgba(25 25 25 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917ff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="Div">
+    <div class="div2">
+    <a href="./00-Tax-Calculator.html" class="back">Back</a>
+    <h1 class="heading">VTC Tax Calcuator</h1>
+    <marquee class="marquee-text">This tax calculator is used to calculate your tax simply from your wage</marquee>
+    <input class="js-cost-input cost-input" placeholder="Set your wage" onkeydown="
+      handleCostKeydown(event);
+    ">
+
+    <pre class="pre">set the cost. This Calcuator can only by ETB.</pre>
+    <p class="js-total-cost total-cost"></p>
+    <p class="js-total-pention total-cost"></p>
+
+    <button onclick="
+      calculateTotal();
+    " class="btn">Calaculate</button>
+  </div>
+  </div>
+  
+
+    <script>
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          calculateTotal();
+        }
+      }
+
+      function calculateTotal() {
+        const inputElement = document.querySelector('.js-cost-input');
+        let cost = Number(inputElement.value);
+
+        if (cost < 601) {
+          cost = cost * 0;
+        } else if (cost < 1651) {
+          cost = cost * 10/100 - 60;
+        } else if (cost < 3201) {
+          cost = cost * 15/100 - 142.5;
+        } else if (cost < 5251) {
+          cost = cost * 20/100 - 302.5;
+        } else if (cost < 7801) {
+          cost = cost * 25/100 - 565;
+        } else if (cost < 10901) {
+          cost = cost * 30/100 - 955;
+        } else if (cost > 10900) {
+          cost = cost * 35/100 - 1500;
+        }
+
+        document.querySelector('.js-total-cost')
+          .innerHTML = `Income Tax: ${cost}.00 Birr`
+
+      
+          const inputPention = document.querySelector('.js-cost-input');
+          let pent = Number(inputPention.value);
+
+          if (pent < 601) {
+            pent = pent * 0;
+          } else if (pent > 601) {
+            pent = pent * 7/100;
+          }
+
+          document.querySelector('.js-total-pention')
+            .innerHTML = `Pention Tax: ${pent}.00 Birr`
+        }
+      
+    </script>
+</body>
+</html>
