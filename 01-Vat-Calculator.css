@@ -1,0 +1,102 @@
+  * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: Arial;
+    }
+
+  body {
+      background-color: rgb(46, 46, 57);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .Div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .div2 {
+      display: inline-block;
+      margin-left: 50%;
+      padding-bottom: 40px;
+    }
+
+    .back {
+      color: wheat;
+      font-weight: bold;
+    }
+
+    .heading {
+      margin-left: 50px;
+      color: white;
+    }
+
+    .marquee-text {
+      margin-top: 20px;
+      display: block;
+      width: 350px;
+      border: none;
+      margin-left: 23px;
+      color: rgb(185, 180, 180);
+      font-weight: bold;
+    }
+
+    .cost-input {
+      border-radius: 20px;
+      border: inset;
+      margin-top: 15px;
+      padding: 10px 15px;
+      font-size: 15px;
+      width: 400px;
+      margin-right: 400px;
+    }
+
+    .btn {
+      margin-left: 120px;
+      padding: 35px;
+      margin-top: 60px;
+      background-color: #633edb;
+      border: none;
+      border-radius: 3em;
+      gap: 12px;
+      background: linear-gradient(0deg, #a47cf3), #683fea;
+      cursor: pointer;
+      transition: all 150ms ease-in-out;
+      box-shadow: inset 0px 1px 0px 0px , 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917ff;
+      transform: translateY(-px);
+      font-weight: 600;
+      color: #e8e8e8;
+      font-size: large;
+      fill: white;
+      transform: scale(1.5);
+    }
+
+    .pre {
+      margin-left: 30px;
+      margin-top: 20px;
+      color: rgb(124, 119, 119);
+    }
+
+    .total-cost {
+      margin-left: 40px;
+      font-weight: bold;
+      font-size: 35px;
+      color: white;
+    }
+
+    .btn:hover {
+      background: linear-gradient(0deg, #a47cf3), #683fea;
+      box-shadow: inset 0px 1px 0px 0px rgba(25 25 25 0.2), 0px 0px 0px 4px rgba(255, 255, 255, 0.2), 0px 0px 180px 0px #9917ff;
+      transform: translateY(-2px);
+    }
+
+    .total {
+      font-weight: bold;
+      font-size: 30px;
+      color: lightgreen;
+      padding-left: 40px;
+    }
